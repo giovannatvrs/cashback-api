@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Consulta de Cashback</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Consulta de Cashback</h1>
+        </div>
+        
+    </header>
+    <main>
+        <div class="main-container">
+            <form>
+                <div class="fields">
+                    <div class="form-control">
+                        <label for="valor-compra">Valor da compra:</label>
+                        <div class="input-box">
+                            <span class="prefix">R$</span>
+                            <input type="text" inputmode="decimal" placeholder="10.00" id="valor-compra">
+                        </div>
+                    </div>
+                
+                    <div class="form-control">
+                        <label>Tipo de Cliente:</label>
+                        <select>
+                            <option>Comum</option>
+                            <option>VIP</option>
+                        </select>
+                    </div>
+                
+                    <div class="form-control">
+                        <label for="percentual-desconto">Desconto:</label>
+                        <div class="input-box">
+                            <input type="text" id="percentual-desconto" inputmode="decimal" placeholder="10">
+                            <span class="sufix">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-button">
+                    <button type="submit" id="submit-button">Consultar</button>
+                </div>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Valor da Compra</th>
+                        <th>Tipo de Cliente</th>
+                        <th>Desconto</th>
+                        <th>Valor Final</th>
+                        <th>Cashback</th>
+                        <th>Data da Consulta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Valor">R$ 432,56</td>
+                        <td data-label="Tipo">VIP</td>
+                        <td data-label="Desconto">10%</td>
+                        <td data-label="Final">R$ 400,00</td>
+                        <td data-label="Cashback">R$ 20,00</td>
+                        <td data-label="Data">18/09/2026</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Valor">R$ 432,56</td>
+                        <td data-label="Tipo">VIP</td>
+                        <td data-label="Desconto">10%</td>
+                        <td data-label="Final">R$ 400,00</td>
+                        <td data-label="Cashback">R$ 20,00</td>
+                        <td data-label="Data">18/09/2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
