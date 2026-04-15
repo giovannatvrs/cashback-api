@@ -28,7 +28,7 @@ Essa ordem foi definida com base na interpretação do cenário 1 apresentado no
 No terminal, digitar:
 git clone https://github.com/giovannatvrs/cashback-api.git
 
-No PyCharm, VSCode ou outras IDES, digitar os comando:
+No PyCharm, VSCode ou outras IDES, digitar os comandos:
 
 python3 -m venv .venv
 
