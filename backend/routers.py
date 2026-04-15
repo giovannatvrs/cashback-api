@@ -22,7 +22,9 @@ async def calcular_cashback(consulta: schemas.ConsultaRequest, request: Request,
         tipo_cliente = consulta.tipo_cliente,
         valor_compra =  consulta.valor_compra,
         valor_final = valor_final,
-        cashback = cashback
+        cashback = cashback,
+        percentual_desconto = consulta.percentual_desconto,
+
     )
 
     db.add(db_consulta)
@@ -30,12 +32,11 @@ async def calcular_cashback(consulta: schemas.ConsultaRequest, request: Request,
     db.refresh(db_consulta)
 
     return {
-        "valor_final": valor_final,
         "cashback": cashback
     };
 
 @router.get("/consultas", response_model=list[schemas.HistoricoResponse])
 async def exibir_historico_consultas(request: Request, db: Session = Depends(database.get_db)):
     ip = request.client.host
-    consultas = db.query(models.Consulta).filter(models.Consulta.ip_usuario == ip).all()
+    consultas = db.query(models.Consulta).filter(models.Consulta.ip_usuario == ip).order_by(models.Consulta.data_consulta).all()
     return consultas;

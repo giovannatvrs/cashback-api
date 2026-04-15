@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Consulta de Cashback</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <div id="notif"></div>
     <header>
         <div>
             <h1>Consulta de Cashback</h1>
@@ -15,21 +19,21 @@
     </header>
     <main>
         <div class="main-container">
-            <form>
+            <form id="form-cashback">
                 <div class="fields">
                     <div class="form-control">
                         <label for="valor-compra">Valor da compra:</label>
                         <div class="input-box">
                             <span class="prefix">R$</span>
-                            <input type="text" inputmode="decimal" placeholder="10.00" id="valor-compra">
+                            <input type="text" inputmode="decimal" placeholder="10.00" id="valor-compra" required>
                         </div>
                     </div>
                 
                     <div class="form-control">
-                        <label>Tipo de Cliente:</label>
-                        <select>
-                            <option>Comum</option>
-                            <option>VIP</option>
+                        <label for="tipo-cliente">Tipo de Cliente:</label>
+                        <select id="tipo-cliente" required>
+                            <option value="Comum">Comum</option>
+                            <option value="VIP">VIP</option>
                         </select>
                     </div>
                 
@@ -44,38 +48,25 @@
                 <div class="form-button">
                     <button type="submit" id="submit-button">Consultar</button>
                 </div>
+
+                <div id="resultado"></div>
             </form>
-            <table>
+            <table id="tabela-consultas">
                 <thead>
                     <tr>
+                        <th class="texto">Tipo de Cliente</th>
                         <th>Valor da Compra</th>
-                        <th>Tipo de Cliente</th>
-                        <th>Desconto</th>
                         <th>Valor Final</th>
                         <th>Cashback</th>
-                        <th>Data da Consulta</th>
+                        <th class="data">Data da Consulta</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td data-label="Valor">R$ 432,56</td>
-                        <td data-label="Tipo">VIP</td>
-                        <td data-label="Desconto">10%</td>
-                        <td data-label="Final">R$ 400,00</td>
-                        <td data-label="Cashback">R$ 20,00</td>
-                        <td data-label="Data">18/09/2026</td>
-                    </tr>
-                    <tr>
-                        <td data-label="Valor">R$ 432,56</td>
-                        <td data-label="Tipo">VIP</td>
-                        <td data-label="Desconto">10%</td>
-                        <td data-label="Final">R$ 400,00</td>
-                        <td data-label="Cashback">R$ 20,00</td>
-                        <td data-label="Data">18/09/2026</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
     </main>
+    <script src="../js/script.js"></script>
 </body>
 </html>
