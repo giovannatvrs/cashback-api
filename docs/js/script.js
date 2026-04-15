@@ -1,5 +1,5 @@
 const form = document.getElementById("form-cashback");
-const API_URL = "cashback-api-production-43b9.up.railway.app"
+const API_URL = "https://cashback-api-production-43b9.up.railway.app";
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -79,7 +79,15 @@ async function carregarHistoricoConsultas() {
 document.addEventListener("DOMContentLoaded", carregarHistoricoConsultas);
 
 function formatarData(dataISO) {
-    const data = new Date(dataISO + "Z"); 
+    if (!dataISO) return "-";
+
+    const iso = dataISO.includes("Z") || dataISO.includes("+")
+        ? dataISO
+        : dataISO + "Z";
+
+    const data = new Date(iso);
+
+    if (isNaN(data)) return "Data inválida";
 
     return data.toLocaleString("pt-BR", {
         timeZone: "America/Sao_Paulo",
