@@ -3,7 +3,7 @@ const form = document.getElementById("form-cashback");
 const API_URL = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
     ? "http://127.0.0.1:8000"
     : "https://cashback-api-production-43b9.up.railway.app";
-    
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -74,7 +74,6 @@ async function carregarHistoricoConsultas() {
             <td class="data" data-label="Data">${formatarData(consulta.data_consulta)}</td>
         </tr>`;
         tbody.innerHTML += row;
-            console.log(consulta.data_consulta);
 
     });
 }

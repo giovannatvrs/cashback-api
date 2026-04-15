@@ -10,7 +10,8 @@ app = FastAPI()
 origins = ["http://localhost:5500", 
            "http://127.0.0.1:5500",
            "http://0.0.0.0:5500",
-           "cashback-api-production-43b9.up.railway.app"]
+           "cashback-api-production-43b9.up.railway.app",
+           "https://giovannatvrs.github.io"]
 
 app.add_middleware(
     CORSMiddleware,
