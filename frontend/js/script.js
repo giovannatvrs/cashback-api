@@ -1,4 +1,5 @@
 const form = document.getElementById("form-cashback");
+const API_URL = "cashback-api-production-43b9.up.railway.app"
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ form.addEventListener("submit", async (e) => {
 
     const descontoFinal = isNaN(desconto) ? 0 : desconto;
 
-    const response = await fetch("http://127.0.0.1:8000/cashback/", {
+    const response = await fetch(`${API_URL}/cashback/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -55,7 +56,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 async function carregarHistoricoConsultas() {
-    const response = await fetch('http://127.0.0.1:8000/cashback/consultas');
+    const response = await fetch(`${API_URL}/cashback/consultas`);
     const data = await response.json();
 
     const tbody = document.querySelector("#tabela-consultas tbody");
