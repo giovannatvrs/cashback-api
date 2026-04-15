@@ -7,12 +7,12 @@ from backend.routers import router
 
 app = FastAPI()
 
-origins = ["http://localhost:5500", 
-           "http://127.0.0.1:5500",
-           "http://0.0.0.0:5500",
-           "cashback-api-production-43b9.up.railway.app",
-           "https://giovannatvrs.github.io"]
-
+origins = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "https://cashback-api-production-43b9.up.railway.app",
+    "https://giovannatvrs.github.io"
+]
 app.add_middleware(
     CORSMiddleware,
     allow_origins= origins,
@@ -21,8 +21,10 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-models.Base.metadata.create_all(bind=engine)
+def init_db():
+    models.Base.metadata.create_all(bind=engine)
 
+init_db()
 
 app.include_router(router)
 

@@ -65,6 +65,17 @@ async function carregarHistoricoConsultas() {
     const tbody = document.querySelector("#tabela-consultas tbody");
     tbody.innerHTML = "";
 
+    if (!data || data.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" style="text-align:center; padding: 20px;">
+                    Sem consultas encontradas
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
     data.forEach(consulta => {
         const row = `<tr>
             <td class="texto" data-label="Tipo de Cliente">${consulta.tipo_cliente}</td>
