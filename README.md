@@ -44,10 +44,9 @@ http://127.0.0.1:5500/
 
 
 ## Melhorias Futuras
-- Implementação de sistema de autenticação e login para acessar dados.
-- Barra de busca.
-- Paginação.
-- Filtros e ordenação
+- Implementação de autenticação e login para permitir histórico por usuário, substituindo a identificação apenas por IP e aumentando a segurança dos dados
+- Implementação de cache para reduzir chamadas repetidas à API
+- Paginação e filtros no histórico de consultas para melhorar performance em grandes volumes de dados
 
 
 ## Página
